@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ramabharathi Periyasamy — Senior Graphic Designer & Video Editor</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#0a0a0a; --surface:#111; --card:#161616;
+  --accent:#C9A84C; --accent2:#FF4F2B;
+  --text:#F0EDE6; --muted:#777;
+  --border:rgba(201,168,76,0.18);
+  --nav-h:64px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden;}
+
+/* ── PAGES ── */
+.page{display:none;min-height:100vh;}
+.page.active{display:block;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:300;
+  height:var(--nav-h);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 3rem;
+  background:rgba(10,10,10,0.95);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+}
+.nav-brand{
+  font-family:'DM Sans',sans-serif;font-weight:500;
+  font-size:.95rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--text);cursor:pointer;
+}
+.nav-brand:hover{color:var(--accent);}
+.nav-right{display:flex;align-items:center;gap:2rem;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{
+  color:var(--muted);text-decoration:none;font-size:.78rem;
+  letter-spacing:.15em;text-transform:uppercase;transition:color .3s;cursor:pointer;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--accent);}
+.hire-btn{
+  border:1px solid var(--accent);color:var(--accent);
+  padding:.5rem 1.4rem;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;
+  background:none;cursor:pointer;font-family:'DM Sans',sans-serif;
+  transition:all .3s;
+}
+.hire-btn:hover{background:var(--accent);color:#000;}
+
+/* ══════════════════════════
+   HOME PAGE
+══════════════════════════ */
+#home{padding-top:var(--nav-h);}
+
+.home-hero{
+  min-height:100vh;
+  display:grid;grid-template-columns:1fr 1fr;
+  position:relative;overflow:hidden;
+}
+/* left panel */
+.hero-left{
+  padding:5rem 3rem 4rem;
+  display:flex;flex-direction:column;justify-content:space-between;
+  border-right:1px solid var(--border);
+  position:relative;
+}
+.hero-eyebrow{
+  display:flex;align-items:center;gap:1rem;
+  font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);
+  margin-bottom:auto;
+}
+.hero-eyebrow::before{content:'';width:40px;height:1px;background:var(--accent);}
+.hero-name-small{
+  font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:.8rem;margin-top:2rem;
+}
+.hero-headline{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(5rem,10vw,10rem);
+  line-height:.88;letter-spacing:.01em;
+  margin-bottom:2rem;
+}
+.hero-headline em{
+  font-family:'DM Serif Display',serif;
+  font-style:italic;color:var(--accent);
+  font-size:.85em;
+}
+.hero-summary{
+  font-size:.9rem;line-height:1.85;color:#999;
+  max-width:440px;margin-bottom:3rem;
+}
+.hero-cta-row{display:flex;gap:1rem;align-items:center;}
+.btn-gold{
+  background:var(--accent);color:#000;
+  padding:.85rem 2.2rem;font-size:.78rem;letter-spacing:.15em;
+  text-transform:uppercase;font-weight:500;border:none;cursor:pointer;
+  font-family:'DM Sans',sans-serif;transition:transform .2s,box-shadow .2s;
+  text-decoration:none;display:inline-block;
+}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.3);}
+.btn-outline{
+  border:1px solid var(--muted);color:var(--muted);
+  padding:.85rem 2.2rem;font-size:.78rem;letter-spacing:.15em;
+  text-transform:uppercase;background:none;cursor:pointer;
+  font-family:'DM Sans',sans-serif;transition:all .3s;
+  text-decoration:none;display:inline-block;
+}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);}
+
+/* right panel */
+.hero-right{
+  display:flex;flex-direction:column;
+  border-left:1px solid var(--border);
+}
+.hero-photo-wrap{
+  flex:1;position:relative;overflow:hidden;
+  background:#111;cursor:pointer;
+}
+.hero-photo-wrap img{
+  width:100%;height:100%;object-fit:cover;
+  display:block;filter:grayscale(20%);transition:filter .4s;
+}
+.hero-photo-wrap:hover img{filter:grayscale(0%);}
+.photo-empty{
+  width:100%;height:100%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:.8rem;color:var(--muted);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;
+}
+.photo-empty svg{opacity:.25;}
+.hero-stats-row{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--border);
+}
+.stat-box{
+  padding:1.5rem;border-right:1px solid var(--border);
+  text-align:center;
+}
+.stat-box:last-child{border-right:none;}
+.stat-n{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2.5rem;color:var(--accent);line-height:1;
+}
+.stat-l{font-size:.65rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-top:.3rem;}
+
+/* floating dot */
+.dot-anim{
+  width:10px;height:10px;border-radius:50%;
+  background:var(--accent);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.6);}}
+
+/* ── HOME MARQUEE ── */
+.marquee-strip{
+  overflow:hidden;white-space:nowrap;
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:.8rem 0;background:var(--surface);
+}
+.marquee-inner{
+  display:inline-block;animation:marquee 20s linear infinite;
+  font-family:'Bebas Neue',sans-serif;font-size:1.1rem;
+  letter-spacing:.3em;color:var(--muted);
+}
+.marquee-inner span{color:var(--accent);margin:0 1.5rem;}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ── HOME SELECTED WORKS ── */
+.home-works{padding:6rem 3rem;}
+.home-works-header{
+  display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;
+}
+.label-small{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem;}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,4rem);line-height:1;}
+.see-all{
+  font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--muted);border-bottom:1px solid var(--muted);
+  padding-bottom:.2rem;cursor:pointer;background:none;border-top:none;border-left:none;border-right:none;
+  font-family:'DM Sans',sans-serif;transition:color .3s,border-color .3s;
+}
+.see-all:hover{color:var(--accent);border-color:var(--accent);}
+
+.featured-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+.feat-card{
+  background:var(--bg);cursor:pointer;
+  position:relative;overflow:hidden;
+  aspect-ratio:4/3;
+}
+.feat-card.tall{aspect-ratio:3/4;}
+.feat-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s;}
+.feat-card:hover img{transform:scale(1.06);}
+.feat-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.8) 0%,transparent 55%);
+  opacity:0;transition:opacity .4s;
+  display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem;
+}
+.feat-card:hover .feat-overlay{opacity:1;}
+.feat-tag{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem;}
+.feat-title{font-family:'DM Serif Display',serif;font-size:1.1rem;}
+
+/* ── HOME ABOUT STRIP ── */
+.home-about{
+  display:grid;grid-template-columns:1fr 1fr;
+  border-top:1px solid var(--border);
+}
+.about-left{
+  padding:5rem 3rem;border-right:1px solid var(--border);
+}
+.about-right{
+  padding:5rem 3rem;
+  display:flex;flex-direction:column;gap:2rem;
+}
+.about-body{font-size:.95rem;line-height:1.9;color:#999;margin-top:1.5rem;}
+.award-pill{
+  display:flex;align-items:center;gap:1rem;
+  border:1px solid var(--border);padding:1rem 1.5rem;
+}
+.award-pill .icon{font-size:1.5rem;}
+.award-pill-title{font-family:'DM Serif Display',serif;font-size:.95rem;}
+.award-pill-sub{font-size:.75rem;color:var(--muted);margin-top:.2rem;}
+
+/* ══════════════════════════
+   PORTFOLIO PAGE
+══════════════════════════ */
+#portfolio{padding-top:var(--nav-h);}
+.port-header{
+  padding:4rem 3rem 2rem;
+  border-bottom:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;
+}
+.filter-row{display:flex;gap:.5rem;flex-wrap:wrap;}
+.filter-btn{
+  background:none;border:1px solid var(--border);color:var(--muted);
+  padding:.45rem 1.1rem;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+  cursor:pointer;transition:all .3s;font-family:'DM Sans',sans-serif;
+}
+.filter-btn.active,.filter-btn:hover{background:var(--accent);color:#000;border-color:var(--accent);}
+
+.port-grid{
+  padding:2rem 3rem 4rem;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1rem;
+}
+.p-card{
+  background:var(--card);border:1px solid var(--border);
+  cursor:pointer;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s;
+}
+.p-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.5);border-color:rgba(201,168,76,.4);}
+.p-thumb{width:100%;aspect-ratio:16/9;overflow:hidden;position:relative;background:#111;}
+.p-thumb.portrait{aspect-ratio:9/16;max-height:300px;}
+.p-thumb.square{aspect-ratio:1/1;}
+.p-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s;}
+.p-card:hover .p-thumb img{transform:scale(1.06);}
+.play-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.35);transition:background .3s;}
+.p-card:hover .play-overlay{background:rgba(0,0,0,.15);}
+.play-btn{width:52px;height:52px;border-radius:50%;background:rgba(201,168,76,.9);display:flex;align-items:center;justify-content:center;transition:transform .3s;}
+.p-card:hover .play-btn{transform:scale(1.12);background:var(--accent);}
+.p-info{padding:.9rem 1.1rem 1.1rem;}
+.p-badge{display:inline-block;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;padding:.22rem .6rem;margin-bottom:.5rem;font-weight:500;}
+.p-badge.video{background:rgba(255,79,43,.12);color:#FF6B4A;border:1px solid rgba(255,79,43,.25);}
+.p-badge.reel{background:rgba(5,150,105,.12);color:#34D399;border:1px solid rgba(5,150,105,.25);}
+.p-badge.design{background:rgba(37,99,235,.12);color:#60A5FA;border:1px solid rgba(37,99,235,.25);}
+.p-badge.brand{background:rgba(124,58,237,.12);color:#A78BFA;border:1px solid rgba(124,58,237,.25);}
+.p-badge.logo{background:rgba(201,168,76,.12);color:var(--accent);border:1px solid rgba(201,168,76,.25);}
+.p-title{font-family:'DM Serif Display',serif;font-size:1rem;margin-bottom:.25rem;}
+.p-sub{font-size:.72rem;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;}
+
+/* ══════════════════════════
+   ABOUT PAGE
+══════════════════════════ */
+#about{padding-top:var(--nav-h);}
+.about-page-hero{
+  display:grid;grid-template-columns:1fr 1fr;min-height:60vh;
+}
+.aph-left{
+  padding:5rem 3rem;border-right:1px solid var(--border);
+  display:flex;flex-direction:column;justify-content:center;
+}
+.aph-right{
+  background:#111;position:relative;overflow:hidden;cursor:pointer;
+}
+.aph-right img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(30%);}
+.aph-right:hover img{filter:grayscale(0%);}
+.about-bio{font-size:.92rem;line-height:1.9;color:#999;margin-top:1.5rem;max-width:480px;}
+
+.skills-section{padding:5rem 3rem;background:var(--surface);border-top:1px solid var(--border);}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5px;border:1px solid var(--border);margin-top:2rem;}
+.skill-card{background:var(--card);padding:2rem 1.8rem;position:relative;overflow:hidden;transition:background .3s;}
+.skill-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .4s;}
+.skill-card:hover::before{transform:scaleX(1);}
+.skill-card:hover{background:#1c1c1c;}
+.skill-icon{font-size:1.8rem;margin-bottom:.8rem;}
+.skill-name{font-family:'DM Serif Display',serif;font-size:1rem;margin-bottom:.6rem;}
+.skill-tools{font-size:.78rem;color:var(--muted);line-height:1.75;}
+
+.exp-section{padding:5rem 3rem;border-top:1px solid var(--border);}
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:2rem;}
+.timeline{position:relative;padding-left:1.8rem;}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--border);}
+.tl-item{position:relative;margin-bottom:2.5rem;padding-left:1.8rem;}
+.tl-item::before{content:'';position:absolute;left:-1.8rem;top:.35rem;width:8px;height:8px;border:2px solid var(--accent);background:var(--bg);border-radius:50%;transform:translateX(-4px);}
+.tl-period{font-size:.68rem;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.4rem;}
+.tl-role{font-family:'DM Serif Display',serif;font-size:1.1rem;margin-bottom:.15rem;}
+.tl-co{font-size:.8rem;color:var(--muted);margin-bottom:.8rem;}
+.tl-bullets{list-style:none;}
+.tl-bullets li{font-size:.82rem;color:#999;line-height:1.7;padding-left:.9rem;position:relative;margin-bottom:.25rem;}
+.tl-bullets li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:.7rem;}
+.award-badge{display:inline-block;margin-top:.6rem;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.25);color:var(--accent);font-size:.7rem;letter-spacing:.1em;padding:.25rem .7rem;}
+
+/* ══════════════════════════
+   CONTACT PAGE
+══════════════════════════ */
+#contact{padding-top:var(--nav-h);}
+.contact-wrap{
+  display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - var(--nav-h));
+}
+.contact-left{
+  padding:5rem 3rem;border-right:1px solid var(--border);
+  display:flex;flex-direction:column;justify-content:center;
+}
+.contact-right{
+  padding:5rem 3rem;background:var(--surface);
+  display:flex;flex-direction:column;gap:2rem;justify-content:center;
+}
+.c-detail{display:flex;align-items:center;gap:1.2rem;margin-bottom:1.5rem;}
+.c-icon{width:44px;height:44px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;font-size:1.1rem;}
+.c-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.2rem;}
+.c-value{font-size:.92rem;}
+.c-value a{color:var(--text);text-decoration:none;}
+.c-value a:hover{color:var(--accent);}
+
+.lang-grid{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.5rem;}
+.lang-pill{border:1px solid var(--border);padding:.5rem 1.2rem;font-size:.78rem;color:var(--text);}
+
+/* ══════════════════════════
+   MODAL
+══════════════════════════ */
+.modal-backdrop{
+  position:fixed;inset:0;z-index:500;
+  background:rgba(0,0,0,.97);
+  display:none;align-items:center;justify-content:center;padding:1.5rem;
+}
+.modal-backdrop.open{display:flex;}
+.modal-box{
+  background:var(--card);border:1px solid var(--border);
+  width:100%;max-width:960px;max-height:94vh;overflow-y:auto;position:relative;
+  animation:slideUp .3s ease;
+}
+@keyframes slideUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+.modal-close{
+  position:absolute;top:1rem;right:1rem;z-index:10;
+  background:var(--accent);color:#000;border:none;
+  width:34px;height:34px;font-size:1rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-weight:700;
+}
+.modal-media{width:100%;background:#000;}
+.modal-media.landscape{aspect-ratio:16/9;}
+.modal-media.portrait{aspect-ratio:9/16;max-height:75vh;}
+.modal-media.square{aspect-ratio:1/1;max-height:65vh;}
+.modal-media iframe,.modal-media img{width:100%;height:100%;border:none;display:block;object-fit:contain;}
+.modal-body{padding:2rem;}
+.modal-badge{display:inline-block;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;padding:.28rem .8rem;margin-bottom:.8rem;}
+.modal-badge.video{background:rgba(255,79,43,.12);color:#FF6B4A;border:1px solid rgba(255,79,43,.25);}
+.modal-badge.reel{background:rgba(5,150,105,.12);color:#34D399;border:1px solid rgba(5,150,105,.25);}
+.modal-badge.design{background:rgba(37,99,235,.12);color:#60A5FA;border:1px solid rgba(37,99,235,.25);}
+.modal-badge.brand{background:rgba(124,58,237,.12);color:#A78BFA;border:1px solid rgba(124,58,237,.25);}
+.modal-badge.logo{background:rgba(201,168,76,.12);color:var(--accent);border:1px solid rgba(201,168,76,.25);}
+.modal-title{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:.04em;margin-bottom:.4rem;}
+.modal-client{font-size:.8rem;color:var(--muted);margin-bottom:1rem;letter-spacing:.08em;text-transform:uppercase;}
+.modal-desc{font-size:.88rem;line-height:1.85;color:#bbb;}
+.modal-nav{display:flex;justify-content:space-between;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);}
+.modal-nav-btn{background:none;border:1px solid var(--border);color:var(--muted);padding:.55rem 1.4rem;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .3s;}
+.modal-nav-btn:hover{border-color:var(--accent);color:var(--accent);}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--surface);padding:2rem 3rem;
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid var(--border);
+}
+footer p{font-size:.75rem;color:var(--muted);}
+.footer-brand{font-family:'DM Sans',sans-serif;font-weight:500;font-size:.9rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:860px){
+  .home-hero,.home-about,.about-page-hero,.contact-wrap{grid-template-columns:1fr;}
+  .hero-right,.aph-right{display:none;}
+  .about-right,.hero-right{border-left:none;}
+  nav{padding:0 1.5rem;}
+  .nav-links{display:none;}
+  .port-header,.port-grid,.home-works,.about-left,.aph-left,.skills-section,.exp-section,.contact-left,.contact-right{padding-left:1.5rem;padding-right:1.5rem;}
+  .exp-grid{grid-template-columns:1fr;}
+  .featured-grid{grid-template-columns:1fr;}
+  footer{flex-direction:column;gap:.8rem;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand" onclick="showPage('home')">RAMABHARATHI P.</div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
+      <li><a onclick="showPage('portfolio')" id="nav-portfolio">Portfolio</a></li>
+      <li><a onclick="showPage('about')" id="nav-about">About</a></li>
+      <li><a onclick="showPage('contact')" id="nav-contact">Contact</a></li>
+    </ul>
+    <button class="hire-btn" onclick="showPage('contact')">Hire Me</button>
+  </div>
+</nav>
+
+<!-- ══════════════ HOME ══════════════ -->
+<div id="home" class="page active">
+
+  <div class="home-hero">
+    <!-- LEFT -->
+    <div class="hero-left">
+      <div>
+        <div class="hero-eyebrow">
+          <div class="dot-anim"></div>
+          Senior Graphic Designer & Video Editor · Bangalore
+        </div>
+      </div>
+      <div>
+        <div class="hero-name-small">Ramabharathi Periyasamy</div>
+        <h1 class="hero-headline">
+          DESIGN<br/>
+          THAT <em>Moves</em><br/>
+          PEOPLE
+        </h1>
+        <p class="hero-summary">Award-winning creative with 14+ years driving visual excellence across ed-tech, digital marketing, e-commerce, and branding — from concept to final cut.</p>
+        <div class="hero-cta-row">
+          <button class="btn-gold" onclick="showPage('portfolio')">View Portfolio</button>
+          <button class="btn-outline" onclick="showPage('contact')">Get In Touch</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="hero-right">
+      <div class="hero-photo-wrap" onclick="document.getElementById('photo-upload').click()">
+        <div class="photo-empty" id="photo-empty">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="22" r="12" stroke="#666" stroke-width="1.5"/><path d="M8 52c0-12.15 9.85-22 22-22s22 9.85 22 22" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Click to upload your photo
+        </div>
+        <img id="hero-photo" alt="Ramabharathi" style="display:none;width:100%;height:100%;object-fit:cover;"/>
+        <input type="file" id="photo-upload" accept="image/*" style="display:none" onchange="handlePhoto(event)"/>
+      </div>
+      <div class="hero-stats-row">
+        <div class="stat-box"><div class="stat-n">14+</div><div class="stat-l">Years</div></div>
+        <div class="stat-box"><div class="stat-n">1K+</div><div class="stat-l">Videos</div></div>
+        <div class="stat-box"><div class="stat-n">7×</div><div class="stat-l">Awards</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="marquee-strip">
+    <div class="marquee-inner">
+      VIDEO EDITING <span>✦</span> GRAPHIC DESIGN <span>✦</span> BRAND IDENTITY <span>✦</span> MOTION GRAPHICS <span>✦</span> SOCIAL MEDIA <span>✦</span> AI WORKFLOWS <span>✦</span> COLOR GRADING <span>✦</span> LOGO DESIGN <span>✦</span> ED-TECH CONTENT <span>✦</span>&nbsp;
+      VIDEO EDITING <span>✦</span> GRAPHIC DESIGN <span>✦</span> BRAND IDENTITY <span>✦</span> MOTION GRAPHICS <span>✦</span> SOCIAL MEDIA <span>✦</span> AI WORKFLOWS <span>✦</span> COLOR GRADING <span>✦</span> LOGO DESIGN <span>✦</span> ED-TECH CONTENT <span>✦</span>&nbsp;
+    </div>
+  </div>
+
+  <!-- SELECTED WORKS -->
+  <div class="home-works">
+    <div class="home-works-header">
+      <div>
+        <div class="label-small">Selected Works</div>
+        <div class="section-title">PORTFOLIO</div>
+      </div>
+      <button class="see-all" onclick="showPage('portfolio')">View All Work →</button>
+    </div>
+    <div class="featured-grid">
+      <div class="feat-card" onclick="openModalDirect(0)">
+        <img src="https://img.youtube.com/vi/MYvhYlNhR6U/hqdefault.jpg" alt="Kriya"/>
+        <div class="feat-overlay"><div class="feat-tag">VIDEO</div><div class="feat-title">Kriya</div></div>
+      </div>
+      <div class="feat-card tall" onclick="openModalDirect(19)">
+        <img src="Onam_PKGS.jpeg" alt="Onam PKGS"/>
+        <div class="feat-overlay"><div class="feat-tag">BRAND</div><div class="feat-title">Happy Onam · PKGS Holdings</div></div>
+      </div>
+      <div class="feat-card" onclick="openModalDirect(14)">
+        <img src="royal_copy_final.jpg" alt="Royal Indian"/>
+        <div class="feat-overlay"><div class="feat-tag">DESIGN</div><div class="feat-title">The Royal Indian</div></div>
+      </div>
+      <div class="feat-card" onclick="openModalDirect(23)">
+        <img src="2.png" alt="LK Logo"/>
+        <div class="feat-overlay"><div class="feat-tag">LOGO</div><div class="feat-title">Dr. Lakshay Kathuria</div></div>
+      </div>
+      <div class="feat-card" onclick="openModalDirect(15)">
+        <img src="27-02-2023_Chungwah_copy.jpg" alt="Chung Wah"/>
+        <div class="feat-overlay"><div class="feat-tag">DESIGN</div><div class="feat-title">Chung Wah · Golden Prawns</div></div>
+      </div>
+      <div class="feat-card" onclick="openModalDirect(30)">
+        <img src="YT_Logo.png" alt="ChemNexus"/>
+        <div class="feat-overlay"><div class="feat-tag">LOGO</div><div class="feat-title">ChemNexus</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT STRIP -->
+  <div class="home-about">
+    <div class="about-left reveal">
+      <div class="label-small">About Me</div>
+      <div class="section-title">14 YEARS OF<br/>VISUAL CRAFT</div>
+      <p class="about-body">Versatile, award-winning Graphic Designer and Video Editor with 14 years of experience driving creative excellence across digital marketing, ed-tech, e-commerce, and branding. Adept at managing end-to-end video production, creating high-impact digital campaign assets, and leading brand strategy.</p>
+      <div style="margin-top:2rem;">
+        <button class="btn-gold" onclick="showPage('about')">Read More</button>
+      </div>
+    </div>
+    <div class="about-right" style="padding:5rem 3rem;">
+      <div class="award-pill reveal">
+        <div class="icon">🏆</div>
+        <div><div class="award-pill-title">2× Quarterly Star Performer</div><div class="award-pill-sub">Physics Wallah · Studio efficiency & data management</div></div>
+      </div>
+      <div class="award-pill reveal">
+        <div class="icon">🏆</div>
+        <div><div class="award-pill-title">5× Star Performer of the Month</div><div class="award-pill-sub">Grassroots · Awarded 5 times in 10 months for creative excellence</div></div>
+      </div>
+      <div style="margin-top:1rem;font-size:.85rem;color:var(--muted);line-height:1.8;" class="reveal">
+        Currently: <span style="color:var(--text);">Senior Associate – Video & Media Production</span><br/>
+        at <span style="color:var(--accent);">Physics Wallah</span> · Bangalore
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Ramabharathi P.</div>
+    <p>© 2026 · Senior Graphic Designer & Video Editor · Bangalore</p>
+    <p style="font-size:.72rem;">rblimra@gmail.com</p>
+  </footer>
+</div>
+
+<!-- ══════════════ PORTFOLIO ══════════════ -->
+<div id="portfolio" class="page">
+  <div class="port-header">
+    <div>
+      <div class="label-small">Creative Work</div>
+      <div class="section-title">PORTFOLIO</div>
+    </div>
+    <div class="filter-row">
+      <button class="filter-btn active" onclick="filterPortfolio('all',this)">All</button>
+      <button class="filter-btn" onclick="filterPortfolio('video',this)">Videos</button>
+      <button class="filter-btn" onclick="filterPortfolio('reel',this)">Reels</button>
+      <button class="filter-btn" onclick="filterPortfolio('design',this)">Design</button>
+      <button class="filter-btn" onclick="filterPortfolio('brand',this)">Brand</button>
+      <button class="filter-btn" onclick="filterPortfolio('logo',this)">Logos</button>
+    </div>
+  </div>
+  <p style="padding:.8rem 3rem;font-size:.75rem;color:var(--muted);">Click any card to view full details</p>
+  <div class="port-grid" id="portfolio-grid"></div>
+  <footer>
+    <div class="footer-brand">Ramabharathi P.</div>
+    <p>© 2026 · Senior Graphic Designer & Video Editor</p>
+    <p style="font-size:.72rem;">rblimra@gmail.com</p>
+  </footer>
+</div>
+
+<!-- ══════════════ ABOUT ══════════════ -->
+<div id="about" class="page">
+  <div class="about-page-hero">
+    <div class="aph-left">
+      <div class="label-small">About Me</div>
+      <div class="section-title">RAMABHARATHI<br/>PERIYASAMY</div>
+      <p class="about-bio">Versatile, award-winning Graphic Designer and Video Editor with 14 years of experience driving creative excellence across digital marketing, ed-tech, e-commerce, and branding. Adept at managing end-to-end video production, creating high-impact digital campaign assets, and leading brand strategy. Proven track record of delivering high-quality visual storytelling under tight deadlines while collaborating across cross-functional teams to elevate brand presence.</p>
+    </div>
+    <div class="aph-right" onclick="document.getElementById('photo-upload-about').click()">
+      <img id="about-photo" alt="Ramabharathi" style="display:none;"/>
+      <div class="photo-empty" id="about-photo-empty" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;color:var(--muted);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;">
+        <svg width="60" height="60" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="22" r="12" stroke="#666" stroke-width="1.5"/><path d="M8 52c0-12.15 9.85-22 22-22s22 9.85 22 22" stroke="#666" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Click to upload photo
+      </div>
+      <input type="file" id="photo-upload-about" accept="image/*" style="display:none" onchange="handlePhotoAbout(event)"/>
+    </div>
+  </div>
+
+  <div class="skills-section">
+    <div class="label-small">Expertise</div>
+    <div class="section-title">SKILLS</div>
+    <div class="skills-grid">
+      <div class="skill-card reveal"><div class="skill-icon">🎬</div><div class="skill-name">Video Production & Editing</div><div class="skill-tools">Adobe Premiere Pro · After Effects · Final Cut Pro · DaVinci Resolve · Runway Gen-3 · ElevenLabs · OBS</div></div>
+      <div class="skill-card reveal"><div class="skill-icon">✦</div><div class="skill-name">Graphic & UI/UX Design</div><div class="skill-tools">Adobe Photoshop · Illustrator · InDesign · CorelDRAW · Figma · Midjourney · Adobe Firefly · WIX</div></div>
+      <div class="skill-card reveal"><div class="skill-icon">⚡</div><div class="skill-name">AI-Powered Workflows</div><div class="skill-tools">Generative Fill · Figma AI · Runway Gen-2/3 · AI Audio Remix · ChatGPT · Claude · Gemini</div></div>
+      <div class="skill-card reveal"><div class="skill-icon">📣</div><div class="skill-name">Digital Marketing</div><div class="skill-tools">Meta Business Suite · Social Media Management · Digital Signage · Email Campaigns · CTR Optimization</div></div>
+      <div class="skill-card reveal"><div class="skill-icon">🎨</div><div class="skill-name">Brand Strategy & Identity</div><div class="skill-tools">Brand Frameworks · Visual Storytelling · Campaign Briefs · Marketing Collateral · Identity Systems</div></div>
+      <div class="skill-card reveal"><div class="skill-icon">🏆</div><div class="skill-name">Leadership & Collaboration</div><div class="skill-tools">Team Leadership · Project Management · Client Relations · Studio Operations · Vendor Management</div></div>
+    </div>
+  </div>
+
+  <div class="exp-section">
+    <div class="label-small">Career</div>
+    <div class="section-title">EXPERIENCE</div>
+    <div class="exp-grid">
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <div class="tl-period">May 2023 – Present</div>
+          <div class="tl-role">Senior Associate – Video & Media Production</div>
+          <div class="tl-co">Physics Wallah</div>
+          <ul class="tl-bullets"><li>Conceptualise & optimise educational videos for YouTube, web & mobile</li><li>Manage advanced studio operations & broadcast-quality output</li><li>Color correction, grading & audio enhancement workflows</li></ul>
+          <div class="award-badge">🏆 2× Quarterly Star Performer</div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-period">June 2022 – May 2023</div>
+          <div class="tl-role">Graphic Designer – Digital Marketing Production</div>
+          <div class="tl-co">Grassroots</div>
+          <ul class="tl-bullets"><li>Designed high-converting graphics, banner ads & email templates</li><li>Managed visual content grids for corporate client pages</li><li>Transformed campaign briefs into device-optimised assets</li></ul>
+          <div class="award-badge">🏆 5× Star Performer of the Month</div>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-period">Dec 2021 – May 2022</div>
+          <div class="tl-role">Graphic Designer / Video Editor</div>
+          <div class="tl-co">Knowledgeworks Pvt Ltd</div>
+          <ul class="tl-bullets"><li>Premium video assets for enterprise client Jio Embibe</li><li>Integrated motion graphics & VFX via After Effects</li></ul>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <div class="tl-period">Mar 2019 – Nov 2021</div>
+          <div class="tl-role">Video Editor / Content Producer</div>
+          <div class="tl-co">Shareit Technology India Pvt Ltd</div>
+          <ul class="tl-bullets"><li>Wrote, shot & edited 1,000+ videos across lifestyle, sports, news & entertainment</li><li>Designed 200+ high-engagement thumbnails per week</li><li>End-to-end storytelling: script to final colour grade</li></ul>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-period">Mar 2013 – Jan 2019</div>
+          <div class="tl-role">Design & Branding Head</div>
+          <div class="tl-co">Victor Faashion</div>
+          <ul class="tl-bullets"><li>Built & scaled the entire visual brand framework</li><li>Directed full design cycle from trend forecasting to product validation</li></ul>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-period">Mar 2009 – Feb 2013</div>
+          <div class="tl-role">Design & Sales Coordinator</div>
+          <div class="tl-co">Technomedias</div>
+          <ul class="tl-bullets"><li>Engineered outdoor signage, window displays & POS graphics</li><li>Executed B2B & B2C marketing campaigns</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-brand">Ramabharathi P.</div>
+    <p>© 2026 · Senior Graphic Designer & Video Editor</p>
+    <p style="font-size:.72rem;">rblimra@gmail.com</p>
+  </footer>
+</div>
+
+<!-- ══════════════ CONTACT ══════════════ -->
+<div id="contact" class="page">
+  <div class="contact-wrap">
+    <div class="contact-left">
+      <div class="label-small">Let's Connect</div>
+      <div class="section-title">GET IN<br/>TOUCH</div>
+      <p style="color:#999;line-height:1.85;margin-top:1.5rem;max-width:420px;">Open to senior creative roles, freelance video production, brand campaigns, and collaborative opportunities in digital media and ed-tech.</p>
+      <div style="margin-top:3rem;">
+        <div class="c-detail"><div class="c-icon">📍</div><div><div class="c-label">Location</div><div class="c-value">42 Anugraha Layout, Choodasandra, Bangalore – 560100</div></div></div>
+        <div class="c-detail"><div class="c-icon">📞</div><div><div class="c-label">Phone</div><div class="c-value"><a href="tel:+919150194293">+91 91501 94293</a></div></div></div>
+        <div class="c-detail"><div class="c-icon">✉</div><div><div class="c-label">Email</div><div class="c-value"><a href="mailto:rblimra@gmail.com">rblimra@gmail.com</a></div></div></div>
+      </div>
+    </div>
+    <div class="contact-right">
+      <div>
+        <div class="label-small">Education</div>
+        <div class="section-title" style="font-size:2rem;">B.Sc. Costume Design<br/>& Fashion</div>
+        <p style="color:var(--muted);margin-top:.5rem;">Sri Krishna Arts and Science College, Coimbatore</p>
+      </div>
+      <div>
+        <div class="label-small" style="margin-bottom:.8rem;">Languages</div>
+        <div class="lang-grid">
+          <div class="lang-pill">English — Fluent</div>
+          <div class="lang-pill">Tamil — Professional</div>
+          <div class="lang-pill">Malayalam — Spoken</div>
+        </div>
+      </div>
+      <div>
+        <div class="label-small" style="margin-bottom:1rem;">Awards</div>
+        <div class="award-pill" style="margin-bottom:1rem;">
+          <div class="icon">🏆</div>
+          <div><div class="award-pill-title">2× Quarterly Star Performer</div><div class="award-pill-sub">Physics Wallah · Studio efficiency & data management</div></div>
+        </div>
+        <div class="award-pill">
+          <div class="icon">🏆</div>
+          <div><div class="award-pill-title">5× Star Performer of the Month</div><div class="award-pill-sub">Grassroots · Awarded 5 times in 10 months</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-brand">Ramabharathi P.</div>
+    <p>© 2026 · Senior Graphic Designer & Video Editor</p>
+    <p style="font-size:.72rem;">rblimra@gmail.com</p>
+  </footer>
+</div>
+
+<!-- ══════════════ MODAL ══════════════ -->
+<div class="modal-backdrop" id="modal" onclick="closeModal(event)">
+  <div class="modal-box" id="modal-box">
+    <button class="modal-close" onclick="closeModalBtn()">✕</button>
+    <div class="modal-media" id="modal-media"></div>
+    <div class="modal-body">
+      <div id="modal-badge" class="modal-badge"></div>
+      <div class="modal-title" id="modal-title"></div>
+      <div class="modal-client" id="modal-client"></div>
+      <div class="modal-desc" id="modal-desc"></div>
+      <div class="modal-nav">
+        <button class="modal-nav-btn" onclick="modalNav(-1)">← Previous</button>
+        <button class="modal-nav-btn" onclick="modalNav(1)">Next →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── PAGE NAVIGATION ──
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  const navEl = document.getElementById('nav-' + id);
+  if (navEl) navEl.classList.add('active');
+  window.scrollTo(0, 0);
+  if (id === 'portfolio') renderCards('all');
+  observeReveal();
+}
+
+// ── PHOTO UPLOAD ──
+function handlePhoto(e) {
+  const f = e.target.files[0]; if (!f) return;
+  const url = URL.createObjectURL(f);
+  document.getElementById('hero-photo').src = url;
+  document.getElementById('hero-photo').style.display = 'block';
+  document.getElementById('photo-empty').style.display = 'none';
+  // sync to about page
+  document.getElementById('about-photo').src = url;
+  document.getElementById('about-photo').style.display = 'block';
+  document.getElementById('about-photo-empty').style.display = 'none';
+}
+function handlePhotoAbout(e) {
+  const f = e.target.files[0]; if (!f) return;
+  const url = URL.createObjectURL(f);
+  document.getElementById('about-photo').src = url;
+  document.getElementById('about-photo').style.display = 'block';
+  document.getElementById('about-photo-empty').style.display = 'none';
+  document.getElementById('hero-photo').src = url;
+  document.getElementById('hero-photo').style.display = 'block';
+  document.getElementById('photo-empty').style.display = 'none';
+}
+
+// ── PORTFOLIO DATA ──
+const items = [
+  // VIDEOS
+  { cat:'video', orientation:'landscape', type:'youtube', ytId:'MYvhYlNhR6U', title:'Kriya', client:'Creative Production', desc:'A cinematic production showcasing storytelling through motion, sound and visual composition.' },
+  { cat:'video', orientation:'landscape', type:'youtube', ytId:'B62FK9Aln3c', title:'Toyshine Wooden Clock V2', client:'Product Video · Ed-Tech', desc:'High-quality product video for Toyshine, highlighting craftsmanship and educational value.' },
+  { cat:'video', orientation:'landscape', type:'youtube', ytId:'BdeUpbitc2Q', title:'Video Production #2', client:'Content · Editing', desc:'Professional video production with advanced post-production techniques.' },
+  { cat:'video', orientation:'landscape', type:'youtube', ytId:'zjCQrHAN0k4', title:'Creative Production #3', client:'Content · Editing', desc:'Engaging content combining strong visual storytelling and audio design.' },
+  // REELS
+  { cat:'reel', orientation:'portrait', type:'youtube', ytId:'s7lMRN_pARg', title:'Reel #1', client:'Short-Form · Social Media', desc:'Punchy vertical reel optimised for Instagram and YouTube Shorts.' },
+  { cat:'reel', orientation:'portrait', type:'youtube', ytId:'cC6Nvtgj_RE', title:'Reel #2', client:'Short-Form · Social Media', desc:'Dynamic short-form content with motion graphics and precise audio sync.' },
+  { cat:'reel', orientation:'portrait', type:'youtube', ytId:'ynkz0GV93gw', title:'Reel #3', client:'Short-Form · Social Media', desc:'Creative reel with fast-paced cuts and eye-catching transitions.' },
+  { cat:'reel', orientation:'portrait', type:'youtube', ytId:'DeuZYorWnBM', title:'Reel #4', client:'Short-Form · Social Media', desc:'Vertical format content designed for maximum engagement and reach.' },
+  { cat:'reel', orientation:'portrait', type:'youtube', ytId:'CpEq0j9y7b8', title:'Reel #5', client:'Short-Form · Social Media', desc:'Stylised reel combining brand identity with high-energy editing.' },
+  // DESIGN
+  { cat:'design', orientation:'landscape', type:'image', src:'Cleaning_Services_-4.png', title:'Catering Services', client:'Lavan Enterprises · Social Ad', desc:'Bold social media ad for Lavan Enterprises catering services, designed for high CTR.' },
+  { cat:'design', orientation:'portrait', type:'image', src:'25-11-2024.png', title:'Elimination of Violence Against Women', client:'Lavan Enterprises · Social Cause', desc:'Powerful awareness poster for International Day for the Elimination of Violence Against Women.' },
+  { cat:'design', orientation:'portrait', type:'image', src:'International_Day_of_the_Girl_Child_ENG.png', title:'International Day of the Girl Child', client:'Womenpreneurs4Plastic · English', desc:'Campaign poster for International Day of the Girl Child in English.' },
+  { cat:'design', orientation:'portrait', type:'image', src:'International_Day_of_the_Girl_Child_TAM.png', title:'International Day of the Girl Child', client:'Womenpreneurs4Plastic · Tamil', desc:'Bilingual campaign poster in Tamil — showcasing multilingual design capability.' },
+  { cat:'design', orientation:'landscape', type:'image', src:'royal_copy_final.jpg', title:'The Royal Indian', client:'Restaurant · Social Ad', desc:'Bold split-design social ad for The Royal Indian restaurant — food photography + typography.' },
+  { cat:'design', orientation:'landscape', type:'image', src:'27-02-2023_Chungwah_copy.jpg', title:'Golden Fried Prawns', client:'Chung Wah · Food Campaign', desc:'Energetic food marketing poster with dynamic typography and mood lighting.' },
+  { cat:'design', orientation:'portrait', type:'image', src:'Work_5.jpeg', title:'Nutella Shake', client:'Zam Zam Restaurant · Product Ad', desc:'Stunning product ad featuring rich chocolate visuals and premium food styling.' },
+  { cat:'design', orientation:'portrait', type:'image', src:'Work_4.jpeg', title:'Family Combo Menu', client:'Zam Zam Restaurant · Menu Design', desc:'Promotional menu design with bold pricing hierarchy and food photography.' },
+  { cat:'design', orientation:'portrait', type:'image', src:'Work_12.jpeg', title:'Weekend Special Combo', client:'Zam Zam Restaurant · Offer Design', desc:'High-converting weekend offer poster with bold typography and food imagery.' },
+  // BRAND
+  { cat:'brand', orientation:'portrait', type:'image', src:'LAVAN_Static_Posters_.png', title:"It's Time to Travel", client:'Lavan Enterprises · Brand Campaign', desc:"Travel campaign poster — dynamic 3D composition with strong typographic hierarchy." },
+  { cat:'brand', orientation:'portrait', type:'image', src:'Onam_PKGS.jpeg', title:'Happy Onam', client:'PKGS Holdings · Festive Brand', desc:'Vibrant festive design for PKGS Holdings celebrating Onam — rich cultural imagery.' },
+  { cat:'brand', orientation:'landscape', type:'image', src:'LGT-Digital_Marketing_1_.jpg', title:'Digital Marketing', client:'Lagoon Technologies', desc:'Brand campaign using bold concept design and strong metaphorical imagery.' },
+  { cat:'brand', orientation:'portrait', type:'image', src:'LGT-Digital_Marketing-2.jpg', title:'Reach Higher', client:'Lagoon Technologies · Brand', desc:'Motivational brand ad with striking purple palette and ambitious messaging.' },
+  { cat:'brand', orientation:'portrait', type:'image', src:'Work_1.jpeg', title:'ADL Body Builder Audition', client:'AIFID · Event Poster', desc:'Powerful event poster — dramatic lighting and bold layout.' },
+  // LOGOS
+  { cat:'logo', orientation:'square', type:'image', src:'2.png', title:'LK — Dr. Lakshay Kathuria', client:'Ed-Tech · Logo Design', desc:'Clean academic logo with 3D graduation cap integrated with bold "LK" lettermark on a formula-patterned background.' },
+  { cat:'logo', orientation:'square', type:'image', src:'CDF_LOGO_.jpg', title:'CDF — Connecting Dreams Fashion', client:'Fashion · Logo Design', desc:'Vibrant typographic logo blending tricolor letterform with playful tagline in green, pink and cyan.' },
+  { cat:'logo', orientation:'square', type:'image', src:'Aalam-1.png', title:'Aalam Online Delivery', client:'Food & Delivery · Logo Design', desc:'Organic Tamil logo featuring a hand-crafted banyan tree illustration with gold-to-green gradient.' },
+  { cat:'logo', orientation:'square', type:'image', src:'Logo__21_.png', title:'Aarav Ice Cream Parlor', client:'F&B · Neon Logo Design', desc:'Sleek neon-style logo with glowing ice cream sundae icon in cyan, yellow and pink on deep black.' },
+  { cat:'logo', orientation:'square', type:'image', src:'Logo__4_.png', title:'Ram Bloomz Design Needs', client:'Design Studio · Logo Design', desc:'Elegant watercolour logo with delicate brush strokes in sage green and blush pink with cursive script.' },
+  { cat:'logo', orientation:'square', type:'image', src:'Logo__1_.png', title:'Vibin Ravi Photography', client:'Photography · Logo Design', desc:'Minimal dark-mode photography logo — two overlapping frosted lens circles above an elegant signature wordmark.' },
+  { cat:'logo', orientation:'square', type:'image', src:'20915174_491705744512024_2376599332055580363_n.png', title:'Ram Trollzzzz', client:'YouTube Channel · Avatar Design', desc:'Fun illustrated YouTube channel avatar — bold cartoon smiley with a sailor cap, hand-drawn style.' },
+  { cat:'logo', orientation:'square', type:'image', src:'YT_Logo.png', title:'ChemNexus', client:'Ed-Tech · Logo Design', desc:'Scientific logo with bold "CN" lettermark and molecular bond illustration in green and blue on teal.' },
+];
+
+// ── RENDER CARDS ──
+let currentFilter = 'all';
+let currentIndex  = 0;
+let filteredItems = [];
+
+function ytThumb(id){ return `https://img.youtube.com/vi/${id}/hqdefault.jpg`; }
+
+function renderCards(filter) {
+  currentFilter = filter;
+  filteredItems = filter === 'all' ? [...items] : items.filter(i => i.cat === filter);
+  const grid = document.getElementById('portfolio-grid');
+  if (!grid) return;
+  grid.innerHTML = '';
+  filteredItems.forEach((item, idx) => {
+    const card = document.createElement('div');
+    card.className = 'p-card';
+    card.onclick = () => openModal(idx);
+    const isVideo = item.type === 'youtube';
+    const thumbSrc = isVideo ? ytThumb(item.ytId) : item.src;
+    const pc = item.orientation === 'portrait' ? ' portrait' : item.orientation === 'square' ? ' square' : '';
+    const playBtn = isVideo ? `<div class="play-overlay"><div class="play-btn"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><polygon points="4,2 16,9 4,16" fill="#000"/></svg></div></div>` : '';
+    card.innerHTML = `
+      <div class="p-thumb${pc}">
+        <img src="${thumbSrc}" alt="${item.title}" loading="lazy"/>
+        ${playBtn}
+      </div>
+      <div class="p-info">
+        <span class="p-badge ${item.cat}">${item.cat.toUpperCase()}</span>
+        <div class="p-title">${item.title}</div>
+        <div class="p-sub">${item.client}</div>
+      </div>`;
+    grid.appendChild(card);
+  });
+  observeReveal();
+}
+
+// ── MODAL ──
+function openModal(idx) {
+  currentIndex = idx;
+  const item = filteredItems[idx];
+  _renderModal(item);
+}
+function openModalDirect(idx) {
+  filteredItems = [...items];
+  currentIndex = idx;
+  _renderModal(items[idx]);
+}
+function _renderModal(item) {
+  const media = document.getElementById('modal-media');
+  const ori = item.orientation;
+  media.className = 'modal-media ' + (ori === 'portrait' ? 'portrait' : ori === 'square' ? 'square' : 'landscape');
+  if (item.type === 'youtube') {
+    media.innerHTML = `<iframe src="https://www.youtube.com/embed/${item.ytId}?autoplay=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+  } else {
+    media.innerHTML = `<img src="${item.src}" alt="${item.title}" style="object-fit:contain;background:#000;"/>`;
+  }
+  document.getElementById('modal-badge').className = `modal-badge ${item.cat}`;
+  document.getElementById('modal-badge').textContent = item.cat.toUpperCase();
+  document.getElementById('modal-title').textContent  = item.title;
+  document.getElementById('modal-client').textContent = item.client;
+  document.getElementById('modal-desc').textContent   = item.desc;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(e){ if(e.target===document.getElementById('modal')) closeModalBtn(); }
+function closeModalBtn(){
+  document.getElementById('modal').classList.remove('open');
+  document.getElementById('modal-media').innerHTML='';
+  document.body.style.overflow='';
+}
+function modalNav(dir){
+  let n = currentIndex + dir;
+  if(n < 0) n = filteredItems.length-1;
+  if(n >= filteredItems.length) n = 0;
+  openModal(n);
+}
+document.addEventListener('keydown', e=>{
+  if(!document.getElementById('modal').classList.contains('open')) return;
+  if(e.key==='Escape') closeModalBtn();
+  if(e.key==='ArrowRight') modalNav(1);
+  if(e.key==='ArrowLeft')  modalNav(-1);
+});
+
+// ── FILTER ──
+function filterPortfolio(cat, btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderCards(cat);
+}
+
+// ── SCROLL REVEAL ──
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+},{threshold:.1});
+function observeReveal(){
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el=>observer.observe(el));
+}
+observeReveal();
+</script>
+</body>
+</html>
